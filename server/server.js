@@ -1,7 +1,6 @@
 // #1 Import Express and Apollo Server
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
-
 // #2 Import mongoose
 const mongoose = require('./config/database');
 
