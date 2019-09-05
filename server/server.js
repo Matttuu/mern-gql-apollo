@@ -5,10 +5,10 @@ const { ApolloServer } = require('apollo-server-express');
 const mongoose = require('./config/database');
 
 // #3 Import GraphQL type definitions
-const typeDefs = require('./modules/post/graphqlSchema');
+const typeDefs = require('./config/modules/post/graphqlSchema');
 
 // #4 Import GraphQL resolvers
-const resolvers = require('./modules/post/resolvers');
+const resolvers = require('./config/modules/post/resolvers');
 
 // #5 Initialize an Apollo server
 const server = new ApolloServer({ typeDefs, resolvers });
@@ -21,7 +21,5 @@ server.applyMiddleware({ app });
 
 // #8 Set the port that the Express application will listen to
 app.listen({ port: 3000 }, () => {
-  console.log(
-    `Server running on http://localhost:${port}${server.graphqlPath}`
-  );
+  console.log(`Server running on http://localhost:3000${server.graphqlPath}`);
 });

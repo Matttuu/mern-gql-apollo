@@ -6,7 +6,7 @@ const DB_URI =
   'mongodb+srv://admin:admin123@cluster0-4jtkl.gcp.mongodb.net/test?retryWrites=true&w=majority';
 
 // #3 Connect to MongoDB
-mongoose.connect(DB_URI, { userNewUrlParser: true });
+mongoose.connect(DB_URI, { useNewUrlParser: true });
 
 // #4 Add basic event listeners on the mongoose.connection object
 mongoose.connection.once('open', () =>
