@@ -14,7 +14,7 @@ const typeDefs = gql`
   type Query {
     posts: [Post]
   }
-  #5 Define a mutation to add new posts with two qreuired fields
+  #5 Define a mutation to add new posts with two required fields
   type Mutation {
     addPost(title: String!, content: String!): Post
   }

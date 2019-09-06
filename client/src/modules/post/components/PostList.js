@@ -16,7 +16,7 @@ export default class PostList extends Component {
         return (
           <Card key={post._id} body outline className='post-card'>
             <CardTitle>{post.title}</CardTitle>
-            <CardBody> {post.content}</CardBody>
+            <CardBody>{post.content}</CardBody>
           </Card>
         );
       });
@@ -24,7 +24,9 @@ export default class PostList extends Component {
       return (
         <div>
           <h3>No posts available</h3>
-          <p>Use the form on the right to create a new post.</p>
+          <p className='lead'>
+            Use the form on the right to create a new post.
+          </p>
         </div>
       );
     }

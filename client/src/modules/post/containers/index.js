@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
 import { withPosts } from '../providers';
 import { PostList, PostForm } from '../components';
 
-import { Container, Row, Col } from 'reactstrap';
 import '../styles/styles.css';
 
 /**
- * Wrap a component using the withPosts provider
- * to get data retrieved with GraphQL.
+ * Wrap Posts component using withPosts provider
+ * for getting posts list in the Posts component
  */
 @withPosts
 export default class PostRoot extends Component {
@@ -20,12 +20,12 @@ export default class PostRoot extends Component {
         <h2 className='posts-title'>Posts Module</h2>
         <hr />
         <Row>
-          <col>
+          <Col>
             <PostList postsLoading={postsLoading} posts={posts} />
-          </col>
-          <col>
+          </Col>
+          <Col>
             <PostForm />
-          </col>
+          </Col>
         </Row>
       </Container>
     );

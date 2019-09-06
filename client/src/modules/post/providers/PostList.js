@@ -1,27 +1,31 @@
-import React 'react'; 
+import React from 'react';
 import { gql } from 'apollo-boost';
-import { Query } from 'react-apollo;
+import { Query } from 'react-apollo';
 
-export const GET_POSTS = gql `
-    {
-        posts {
-            _id
-            title
-            content
-        }
+export const GET_POSTS = gql`
+  {
+    posts {
+      _id
+      title
+      content
     }
-    `;
+  }
+`;
 
-    const withPosts = Component => props => {
+const withPosts = Component => props => {
+  return (
+    <Query query={GET_POSTS}>
+      {({ loading, data }) => {
         return (
-            <Query query={GET_POSTS}>
-                {({ loading, data }) => {
-                    return (
-                        <Component postsLoading={loading} posts={data && data.posts} {...props} />
-                    );
-                }}
-            </Query>
+          <Component
+            postsLoading={loading}
+            posts={data && data.posts}
+            {...props}
+          />
         );
-    };
+      }}
+    </Query>
+  );
+};
 
-    export default withPosts;
+export default withPosts;
